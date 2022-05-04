@@ -105,6 +105,8 @@ extension FileManager {
             case (.directory, .file): return true
             case (.directory, .symlink): return true
             case (.file, .symlink): return true
+            case (.symlink, .symlink):
+                return left.path.contains("Current")
             default: return false
             }
         }
